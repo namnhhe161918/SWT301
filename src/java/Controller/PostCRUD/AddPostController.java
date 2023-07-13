@@ -25,8 +25,8 @@ import java.nio.file.Paths;
 )
 public class AddPostController extends HttpServlet {
 
-    public final String FAILURE = "addpost";
-    public final String SUCCESS = "dashboardlistpost";
+    public final static String FAILURE = "addpost";
+    public final static String SUCCESS = "dashboardlistpost";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
