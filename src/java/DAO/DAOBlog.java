@@ -12,12 +12,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import module.DBConnect;
+import java.util.logging.Logger;
+
 
 /**
  *
  * @author Admin
  */
 public class DAOBlog extends DBConnect {
+    private static final Logger logger = Logger.getLogger(DAOBlog.class.getName());
+
 
     //count
     public int countBlog() {
@@ -32,7 +36,7 @@ public class DAOBlog extends DBConnect {
 
             }
         } catch (SQLException e) {
-            System.out.println(e);
+             logger.info("Your message here");
         }
         return total;
     }
