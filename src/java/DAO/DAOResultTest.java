@@ -55,23 +55,25 @@ public class DAOResultTest extends DBConnect{
         return vector;
     }
     
-    public int removeResultTest (int user_id, int course_id) {
-        int n = 0;
-        String sql = "delete from Result_test where user_id = " + user_id + " and course_id = " + course_id;
-        try {
-            Statement statement = conn.createStatement();
-            n = statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+    public int removeResultTest(int user_id, int course_id) {
+    int n = 0;
+    String sql = "DELETE FROM Result_test WHERE user_id = ? AND course_id = ?";
+    Statement statement = null;
+    try {
+        statement = conn.createStatement();
+        n = statement.executeUpdate(sql);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        return n;
     }
+    return n;
+}
+
 }
