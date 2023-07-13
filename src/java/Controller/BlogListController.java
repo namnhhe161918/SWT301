@@ -40,7 +40,7 @@ public class BlogListController extends HttpServlet {
         int numberPage = (int) Math.ceil((double) totalPost / 4);
         int index;
         String currentPage = request.getParameter("index");
-        if (currentPage == "0" || currentPage == null) {
+        if (currentPage.equals("0") || currentPage == null) {
             index = 1;
         } else {
             index = Integer.parseInt(currentPage);
