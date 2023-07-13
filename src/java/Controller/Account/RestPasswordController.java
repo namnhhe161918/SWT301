@@ -43,7 +43,6 @@ public class RestPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
         request.getRequestDispatcher("view/forgotpsw/forgotpassword.jsp").forward(request, response);
     }
 
@@ -52,7 +51,6 @@ public class RestPasswordController extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
 
-        HttpSession session = request.getSession();
 
         if (new DAOAdmin().checkExist(email) != null) {
             sendDocumentHTML(email, 1);
@@ -66,7 +64,6 @@ public class RestPasswordController extends HttpServlet {
         } else if (new DAOUser().checkExist(email) != null) {
             sendDocumentHTML(email, 4);
             request.setAttribute("msg", "Check your email and verify!");
-//            System.out.println(session.getId());
         } else {
             request.setAttribute("msgerror", "Invalid email!");
             request.getRequestDispatcher("view/forgotpsw/forgotpassword.jsp").forward(request, response);
