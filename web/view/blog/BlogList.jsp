@@ -202,7 +202,7 @@
                                             </c:otherwise>
                                         </c:choose>
 
-                                        <div class="input"> <input type="text" placeholder="Search Here..." value="${requestScope.search}" name="search" id="searchInput">
+                                        <div class="input"> <input type="text" placeholder="Search Here..." value="${requestScope.sxearch}" name="search" id="searchInput">
                                         </div>
                                         <div class="search-input">
                                             <h5 class="widget-title mt-30"><span>Filter</span></h5>
