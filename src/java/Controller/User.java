@@ -96,8 +96,9 @@ public class User extends HttpServlet {
         }
     }
 
+     private Random random = new Random();
     public String generateDisplayName() {
-        Random random = new Random();
+//        Random random = new Random();
         String displayName = "@displayname";
         StringBuilder sb = new StringBuilder(10);
         String sequenceChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
