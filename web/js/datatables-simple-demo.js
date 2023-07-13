@@ -1,9 +1,13 @@
 window.addEventListener('DOMContentLoaded', event => {
-    // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
-
-    const datatablesSimple = document.getElementById('datatablesSimple');
-    if (datatablesSimple) {
-        new simpleDatatables.DataTable(datatablesSimple);
+    if (typeof simpleDatatables !== 'undefined') {
+        const datatablesSimple = document.getElementById('datatablesSimple');
+        let myDataTable = null;
+        
+        if (datatablesSimple) {
+            myDataTable = new simpleDatatables.DataTable(datatablesSimple);
+        }
+        
+        // Sử dụng myDataTable cho các hoạt động liên quan đến bảng dữ liệu
+        // Ví dụ: myDataTable.configure({ ... }), myDataTable.destroy(), myDataTable.update(), v.v.
     }
 });
