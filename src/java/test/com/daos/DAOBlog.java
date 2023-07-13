@@ -11,7 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+<<<<<<< HEAD:src/java/test/com/daos/DAOBlog.java
 import test.com.modules.DBConnect;
+=======
+import java.util.logging.Level;
+import module.DBConnect;
+>>>>>>> a38b9f17aac98069345a877a4251cf448d5975aa:src/java/DAO/DAOBlog.java
 import java.util.logging.Logger;
 
 
@@ -36,7 +41,7 @@ public class DAOBlog extends DBConnect {
 
             }
         } catch (SQLException e) {
-             logger.info("Your message here");
+             logger.info("Wrong");
         }
         return total;
     }
@@ -52,8 +57,8 @@ public class DAOBlog extends DBConnect {
                 Blog b = new Blog(rs.getInt("blog_id"), rs.getString("blog_name"));
                 return b;
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
 
         return null;
@@ -73,8 +78,8 @@ public class DAOBlog extends DBConnect {
                 hashMapBlog.put(b, countById(rs.getInt("blog_id")));
             }
             return hashMapBlog;
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return null;
     }
@@ -90,8 +95,8 @@ public class DAOBlog extends DBConnect {
                 list.add(b);
             }
             return list;
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return null;
     }
@@ -107,8 +112,8 @@ public class DAOBlog extends DBConnect {
             while(rs.next()) {
                num = rs.getInt(1);
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return num;
     }
@@ -120,7 +125,8 @@ public class DAOBlog extends DBConnect {
         HashMap<Blog,Integer> hashmapBlog = bdb.getAll();
         Set<Blog> keySet = hashmapBlog.keySet();
         for (Blog key : keySet) {
-            System.out.println(key.getBlog_id()+ " - " + hashmapBlog.get(key));
+//            System.out.println(key.getBlog_id()+ " - " + hashmapBlog.get(key));
+            logger.log(Level.INFO, "{0} - {1}", new Object[]{key.getBlog_id(), hashmapBlog.get(key)});
         }
     }
 }
