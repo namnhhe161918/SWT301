@@ -36,7 +36,7 @@ public class DAOBlog extends DBConnect {
 
             }
         } catch (SQLException e) {
-             logger.info("Your message here");
+             logger.info("Wrong");
         }
         return total;
     }
@@ -52,8 +52,8 @@ public class DAOBlog extends DBConnect {
                 Blog b = new Blog(rs.getInt("blog_id"), rs.getString("blog_name"));
                 return b;
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
 
         return null;
@@ -73,8 +73,8 @@ public class DAOBlog extends DBConnect {
                 hashMapBlog.put(b, countById(rs.getInt("blog_id")));
             }
             return hashMapBlog;
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return null;
     }
@@ -90,8 +90,8 @@ public class DAOBlog extends DBConnect {
                 list.add(b);
             }
             return list;
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return null;
     }
@@ -107,8 +107,8 @@ public class DAOBlog extends DBConnect {
             while(rs.next()) {
                num = rs.getInt(1);
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException e) {
+            logger.info("Wrong");
         }
         return num;
     }
