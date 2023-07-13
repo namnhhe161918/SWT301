@@ -96,7 +96,7 @@ public class User extends HttpServlet {
         }
     }
 
-     private Random random = new Random();
+    private Random random = new Random();
     public String generateDisplayName() {
 //        Random random = new Random();
         String displayName = "@displayname";
