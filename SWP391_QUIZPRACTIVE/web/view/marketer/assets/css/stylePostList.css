@@ -1,0 +1,145 @@
+@import"styleLeftnavDashboard.css";
+
+
+.add-post{
+  padding: 4px;
+  cursor: pointer;
+}
+
+/*pagination*/
+
+.pagination.left {
+    text-align: left;
+}
+
+.pagination {
+    text-align: left;
+    margin: 30px 0 0 0;
+    display: block;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+.pagination .pagination-list {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.pagination .pagination-list li {
+    margin-right: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.pagination .pagination-list li a {
+    background: #fff;
+    color: #081828;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 0;
+    line-height: 38px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.pagination .pagination-list li.active a, .pagination .pagination-list li:hover a {
+    background: #5830e0;
+    color: #fff;
+    border-color: transparent;
+}
+
+/*pagination*/
+
+
+
+.fa-thumbs-up,
+.fa-exclamation,
+.fa-hourglass-start,
+.delete,
+.edit {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+i.visiblle,
+i.hide,
+span > a > .delete,
+span > a > .edit {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+span > a > .delete:hover {
+    background-color: #b2adde;
+}
+
+.delete:hover {
+  background-color: #b2adde;
+}
+
+.edit:hover {
+  background-color: chocolate;
+}
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.btn-danger {
+    background: #DD2750;
+    border: 1px solid #C43352;
+}
+
+.btn-light {
+    border: 1px solid #E7E7E9;
+}
+
+.force-overflow {
+  min-height: 250px;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #11101D;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+
+@media (max-width: 420px) {
+
+  .visiblle,
+  .hide,
+  .delete,
+  .edit {
+    padding: 5px;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+
+}

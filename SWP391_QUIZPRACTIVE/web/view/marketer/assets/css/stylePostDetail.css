@@ -1,0 +1,43 @@
+@import"styleLeftnavDashboard.css";
+
+.content {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.item-input input, .item-input textarea{
+  width: 100%;
+}
+
+
+.footer {
+  height: 100px;
+  background-color: #11101d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+
+.force-overflow {
+  min-height: 250px;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #11101D;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+

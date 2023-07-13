@@ -1,0 +1,130 @@
+/* resert css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*các thể có letter sẽ kế thừa*/
+html {
+    font-family: 'Jost';
+}
+
+
+.space{
+    height: 46px;
+    width: 100%;
+}
+
+.search_bar {
+    float: left;
+    width: 52%;
+    position: relative;
+}
+
+.search_bar input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-search {
+    position: absolute;
+    right: 24%;
+    top: 35%;
+}
+
+.btn-search button {
+    background: none;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+
+.blog_item {
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.avatar_author img {
+    border-radius: 50%;
+    height: 9em;
+    object-fit: cover;
+    width: 9em;
+    cursor: pointer;
+}
+
+.intro_author {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.name_author {
+    margin-left: 10px;
+}
+
+.name_author {
+    color: #292929;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.body-item {
+    display: flex;
+}
+
+.content_blog_item h2 {
+    color: #292929;
+    font-family: system-ui;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.blog_infor {
+    display: flex;
+    align-items: center;
+}
+
+.blog_tag {
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.blog_tag a {
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 7px;
+}
+
+.create_at {
+    margin-left: 10px;
+}
+
+.image-blog {
+    font-size: 14px;
+    line-height: 25.2px;
+    text-align: center;
+}
+
+.form-select {
+    width: 100%;
+    background-color: transparent;
+    height: 55px;
+    border: none;
+    padding: 0 80px 0 30px;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 0;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}

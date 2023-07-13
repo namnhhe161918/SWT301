@@ -1,0 +1,47 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+}
+
+.abcdy {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    background: url('tt.png') no-repeat center / cover;
+    flex-direction: column;
+    font-size: 2rem;
+    justify-content: center;
+    left: 0;
+    line-height: 1.8;
+    position: fixed;
+    right: 0;
+    top: -10%;
+    z-index: 9999;
+}
+
+.abcd {
+    width: calc((100%/12)*6);
+}
+
+.forgot-psw {
+    font-family: 'Segoe UI';
+}
+
+.forgot-header h1 {
+    color: #2e3856;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 7vh;
+}
+
+.forgot-header p {
+    color: #2e3856;
+    font-size: 72%;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
