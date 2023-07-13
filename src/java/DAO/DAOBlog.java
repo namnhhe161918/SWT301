@@ -120,7 +120,8 @@ public class DAOBlog extends DBConnect {
         HashMap<Blog,Integer> hashmapBlog = bdb.getAll();
         Set<Blog> keySet = hashmapBlog.keySet();
         for (Blog key : keySet) {
-            System.out.println(key.getBlog_id()+ " - " + hashmapBlog.get(key));
+//            System.out.println(key.getBlog_id()+ " - " + hashmapBlog.get(key));
+            logger.info(key.getBlog_id() + " - " + hashmapBlog.get(key));
         }
     }
 }
