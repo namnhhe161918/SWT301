@@ -1,5 +1,6 @@
 package test.com.controllers;
 
+import com.sun.org.slf4j.internal.LoggerFactory;
 import test.com.daos.DAOSlider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -18,6 +19,7 @@ import java.nio.file.Paths;
 )
 
 public class AddSliderController extends HttpServlet {
+    private static final com.sun.org.slf4j.internal.Logger logger = LoggerFactory.getLogger(AddSliderController.class);
 
     public final String FAILURE = "addslider";
     public final String SUCCESS = "listslider";
@@ -66,12 +68,12 @@ public class AddSliderController extends HttpServlet {
             } else {
                 url = SUCCESS;
                 //execute insert
-                sdb.insertSilder(Integer.parseInt(subject), fileName, content, note, status == "1" ? true : false);
+                sdb.insertSilder(Integer.parseInt(subject), fileName, content, note, status.equals("1") ? true : false);
                 response.sendRedirect(url);
 
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+           logger.error(e.getMessage());
         }
 //          response.sendRedirect(url);
 //          return;
