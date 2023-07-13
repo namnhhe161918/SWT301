@@ -2,7 +2,7 @@
 <%@page import="Entities.AccountUser"%> 
 <%@page import="Entities.AccountMarketer"%> 
 <%@page import="Entities.AccountMentor"%> 
-<%@page import="Entities.AccountMentor"%> 
+<%@page import="Entities.AccountAdmin"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -38,7 +38,7 @@
                                     <a href="#" aria-label="Toggle navigation">Course List</a>
                                 </li>-->
                                 <li class="nav-item">
-                                    <a href="listpost" aria-label="Toggle navigation" class="<c:if test="${pagePost != null && setList.contains(pagePost)}">active</c:if>">Blog List</a>
+                                    <a href="listpost" aria-label="Toggle navigation" class="<c:if test="${pagePost != null && setList.contains(pagePost)}">active</c:if>">Blog</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class=" dd-menu collapsed" href="#"
@@ -76,7 +76,7 @@
                                 <li class="nav-item">
                                     <a href="CourseMentor" aria-label="Toggle navigation" class="">Post Course</a>
                                 </li>
-                                <% } %>
+                                <% }r %>
 
                             </ul>
                         </div> <!-- navbar collapse -->
@@ -148,6 +148,31 @@
                                     </li>
                                     <li class="dropdown-i">Home</li>
                                     <li class="dropdown-i"><a href="profile">Profile Setting</a></li>
+                                    <li class="dropdown-i"><a href="ChangePassword">ChangePassword</a></li>
+                                    <li class="dropdown-i"><a href="signout">Sign out</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <%
+                            }else if(session.getAttribute("accountAdmin")!= null){
+                            AccountAdmin amin = (AccountAdmin) session.getAttribute("accountAdmin");
+                        %>
+                        <h6 style="padding: 1rem;color: #081828;"><span>Admin</span> </h6>
+                        <div style="display: flex;">
+                            <img  src="" alt="" onerror="this.src='assets/avatar/base.png'"  style="border-radius: 50%;height: 3em;object-fit: cover;width: 3em;cursor: pointer;">
+                            <i class="fa-solid fa-chevron-down" style="padding: 1rem;cursor: pointer"></i>
+                            <nav class="dropdown-ofme quote show">
+                                <ul class="nav-dropdown">
+                                    <li class="dropdown-i">
+                                        <span class="avatarr"><img
+                                                src="" alt="" onerror="this.src='assets/avatar/base.png'" ></span>
+                                        <span>
+                                            <p id="d-name">Admin</p>
+                                            <p id="role">admin</p>
+                                        </span>
+                                    </li>
+                                    <li class="dropdown-i">Home</li>
+                                     <li class="dropdown-i"><a href="User">Dashboard</a></li>
                                     <li class="dropdown-i"><a href="ChangePassword">ChangePassword</a></li>
                                     <li class="dropdown-i"><a href="signout">Sign out</a></li>
                                 </ul>

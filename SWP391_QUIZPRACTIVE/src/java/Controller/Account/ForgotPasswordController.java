@@ -59,11 +59,11 @@ public class ForgotPasswordController extends HttpServlet {
                     request.getRequestDispatcher("view/forgotpsw/resetpsw.jsp").forward(request, response);
                 } else {
 //                request.getRequestDispatcher("view/Error/404.jsp").forward(request, response);
-                    response.sendRedirect("jspClient/404.jsp");
+                    response.sendRedirect("jspClient/404.html");
                 }
             } else {
                 //tra ve cai gi khi khong co action 
-                request.getRequestDispatcher("jspClient/404.html").forward(request, response);
+                request.getRequestDispatcher("jspClient/404.jsp").forward(request, response);
             }
         }
 

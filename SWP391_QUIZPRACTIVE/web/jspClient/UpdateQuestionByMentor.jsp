@@ -101,11 +101,11 @@
                                         <input id="question-name" type="text" name="question_name" class="form-control" value="<%=question.getQuestion_name()%>" />
                                     </div>
                                     <%for(int i = 0; i < vectorAnswer.size(); i++) {%>
-                                        <input id="anwser_id" name="answer_id" type="hidden" value="<%=vectorAnswer.get(i).getAnswer_id()%>">
+                                        <input id="anwser_id" name="answer_id<%=i%>" type="hidden" value="<%=vectorAnswer.get(i).getAnswer_id()%>">
                                         <div class="input">
                                             <label for="option-<%=i%>">Option <%=(i+1)%></label>
-                                            <input id="option-<%=i%>" name="answer_name" type="text" value="<%=vectorAnswer.get(i).getAnswer_name()%>" class="form-control">
-                                            <select name="is_correct">
+                                            <input id="option" name="answer_name<%=i%>" type="text" value="<%=vectorAnswer.get(i).getAnswer_name()%>" class="form-control">
+                                            <select name="is_correct<%=i%>">
                                                 <option value="1" <%=vectorAnswer.get(i).getIs_correct() == 1 ? "selected" : ""%>>True</option>
                                                 <option value="0" <%=vectorAnswer.get(i).getIs_correct() == 0 ? "selected" : ""%>>False</option>
                                             </select>
@@ -116,6 +116,7 @@
                                         <a href="QuestionByMentor?service=show&course_id=<%=course_id%>">Cancel</a>
                                         <button type="submit" name="submit" style="margin-left: 6px" class="btn-create">Update</button>
                                     </div>
+                                     <%%>
                                 </form>
                             </div>
                         </div>

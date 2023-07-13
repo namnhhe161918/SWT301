@@ -64,7 +64,7 @@
             <%if(request.getAttribute("rsCourse") != null) {
                 ResultSet rsCourse = (ResultSet) request.getAttribute("rsCourse");
                 if(rsCourse.next()) {%>
-                <form action="Course" method="POST">
+                <form action="Course" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="service" value="edit">
                     <input type="hidden" name="course_id" value="<%=rsCourse.getInt(1)%>">
                     <input type="hidden" name="subject_id" value="<%=rsCourse.getInt(2)%>">
@@ -83,7 +83,7 @@
                     </div>
                     <div class="input">
                         <label for="ourse-image">Image</label>
-                        <input id="ourse-image" name="image" type="text" value="<%=rsCourse.getString(6)%>" class="form-control">
+                        <input id="ourse-image" name="file" type="file" class="form-control">
                     </div>
                     <div class="button">
                         <a href="Course">Cancel</a>

@@ -54,6 +54,7 @@
         <%
             String course_name = (String) request.getAttribute("coursename");
             int course_id = (int) request.getAttribute("course_id");
+            String open = (String) request.getAttribute("open");
         %>
 
 
@@ -93,59 +94,23 @@
                 </tr>
                 <%}%>
             </table>
+            
 
-            <div class="modal-subject" style="z-index: 1">
+            <div class="modal-subject<%=open%>" style="z-index: 1">
                 <div class="modal-container-subject">
                     <div class="modal-subject-title">
                         <h4>Add new question</h4>
                     </div>
-                    <form <form action="QuestionAdmin" method="get">
+                    <%if(request.getAttribute("notifi") != null) {
+                        String notifi = (String) request.getAttribute("notifi");%>
+                        <p style="margin-bottom: 12px; color: red"><%=notifi%></p>
+                    <%}%> 
+                    <p style="color: red">*Note that the excel file must be in the correct .xls format and the format is as follows</p>
+                    <img src="./assets/images/categories/FormatExcel.png" alt="alt"/>
+                    <form <form action="QuestionAdmin" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="service" value="add">
                         <input type="hidden" name="course_id" value="<%=course_id%>">
-                        <div class="input">
-                            <label for="question-name">Question name</label><br>
-                            <input id="question-name" type="text" name="name" />
-                        </div>
-                        <div class="input">
-                            <label for="option-1">Option 1</label>
-                            <input id="option-1" name="op1" type="text" class="form-control">
-                            <select name="sl1">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
-                            </select>
-                        </div>
-                        <div class="input">
-                            <label for="option-2">Option 2</label>
-                            <input id="option-2" name="op2" type="text" class="form-control">
-                            <select name="sl2">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
-                            </select>
-                        </div>
-                        <div class="input">
-                            <label for="option-3">Option 3</label>
-                            <input id="option-3" name="op3" type="text" class="form-control">
-                            <select name="sl3">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
-                            </select>
-                        </div>
-                        <div class="input">
-                            <label for="option-4">Option 4</label>
-                            <input id="option-4" name="op4" type="text" class="form-control">
-                            <select name="sl4">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
-                            </select>
-                        </div>
-                        <div class="input">
-                            <label for="option-5">Option 5</label>
-                            <input id="option-5" name="op5" type="text" class="form-control">
-                            <select name="sl5">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
-                            </select>
-                        </div>
+                        <input type="file" name="file" />
                         <div class="button">
                             <span class="btn-cancel">Cancel</span>
                             <button style="margin-left: 6px" class="btn-create">Create</button>

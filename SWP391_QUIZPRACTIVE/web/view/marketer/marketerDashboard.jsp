@@ -33,7 +33,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
         <!--popup of Marketer-->
-        <link rel="stylesheet" href="./assets/css/newcss.css"/>
+        <link rel="stylesheet" href="/assets/css/newcss.css"/>
         <!-- fontanswer icons -->
         <script src="https://kit.fontawesome.com/fe000f9b2a.js" crossorigin="anonymous"></script>
 

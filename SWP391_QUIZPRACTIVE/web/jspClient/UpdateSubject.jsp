@@ -82,7 +82,7 @@
                     </div>
                     <div class="input">
                         <label for="ourse-image">Image</label>
-                        <input id="ourse-image" name="image" type="text" value="<%=rsSubject.getString(3)%>" class="form-control">
+                        <input id="ourse-image" name="file" type="file" class="form-control">
                     </div>
                     <div class="button">
                         <a href="Course">Cancel</a>

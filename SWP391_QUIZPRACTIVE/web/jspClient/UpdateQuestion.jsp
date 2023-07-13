@@ -61,19 +61,22 @@
             <div class="container">
                 
             <%
-                Vector<Question> vectorQues = (Vector<Question>) request.getAttribute("vectorQues");
+                Vector<Question> vectorQues = (Vector<Question>) request.getAttribute("vectorQuestion");
                 Question question = vectorQues.get(0);
-                Vector<Answer> vectorAns = (Vector<Answer>) request.getAttribute("vectorAns");
+                Vector<Answer> vectorAns = (Vector<Answer>) request.getAttribute("vectorAnswer");
+                int course_id = (int) request.getAttribute("course_id");
             %>
-                <form action="Course" method="POST">
+                <form action="QuestionAdmin" method="POST">
                     <input type="hidden" name="service" value="edit">
                     <div class="input">
                         <input type="hidden" name="question_id" value="<%=question.getQuestion_id()%>">
+                        <input type="hidden" name="course_id" value="<%=course_id%>">
                         <label for="question-name">Question name</label><br>
-                        <input id="question-name" type="text" name="question-name" class="form-control" value="<%=question.getQuestion_name()%>" />
+                        <input id="question-name" type="text" name="question_name" class="form-control" value="<%=question.getQuestion_name()%>" />
                     </div>
                     <%for(int i = 0; i < vectorAns.size(); i++) {%>
                     <div class="input">
+                        <input type="hidden" name="answer_id<%=i%>" value="<%=vectorAns.get(i).getAnswer_id()%>">
                         <label for="option-<%=i%>">Option <%=(i+1)%></label>
                         <input id="option-<%=i%>" name="op<%=i%>" type="text" value="<%=vectorAns.get(i).getAnswer_name()%>" class="form-control">
                         <select name="sl<%=i%>">

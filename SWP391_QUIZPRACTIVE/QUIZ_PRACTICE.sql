@@ -4,6 +4,7 @@ USE QUIZ_PRACTICE
 GO
 
 
+	
 /**********************************************************
 **********************************************************/
 
@@ -214,6 +215,7 @@ INSERT INTO [dbo].[Marketer_type]
 
 
 --add mentor
+SELECT * FROM [Mentor_type]
 
 INSERT INTO [dbo].[Mentor_type]
            ([email] ,[password],[fullname],[display_name],[address],[date_of_birth],[gender],[role_id])
