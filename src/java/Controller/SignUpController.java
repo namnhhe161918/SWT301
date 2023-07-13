@@ -118,13 +118,15 @@ public class SignUpController extends HttpServlet {
 //        return null;
 //    }
 
+    private Random random = new Random();
+    
     public String randomdisplayName() {
-        Random r = new Random();
+//        Random r = new Random();
         String res = "@displayname";
         StringBuilder sb = new StringBuilder(10);
         String sequencechar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         for (int i = 1; i < 10; i++) {
-            int index = r.nextInt(sequencechar.length());
+            int index = random.nextInt(sequencechar.length());
             char randomChar = sequencechar.charAt(index);
             sb.append(randomChar);
         }
