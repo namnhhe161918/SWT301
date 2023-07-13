@@ -14,11 +14,11 @@
     </servlet>
     <servlet>
         <servlet-name>ForgotPasswordController</servlet-name>
-        <servlet-class>Controller.Account.ForgotPasswordController</servlet-class>
+        <servlet-class>con.Controller.Account.ForgotPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RestPasswordController</servlet-name>
-        <servlet-class>Controller.Account.RestPasswordController</servlet-class>
+        <servlet-class>con.Controller.Account.RestPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SliderListController</servlet-name>
