@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.logging.Level;
 import module.DBConnect;
 import java.util.logging.Logger;
 
@@ -121,7 +122,7 @@ public class DAOBlog extends DBConnect {
         Set<Blog> keySet = hashmapBlog.keySet();
         for (Blog key : keySet) {
 //            System.out.println(key.getBlog_id()+ " - " + hashmapBlog.get(key));
-            logger.info(key.getBlog_id() + " - " + hashmapBlog.get(key));
+            logger.log(Level.INFO, "{0} - {1}", new Object[]{key.getBlog_id(), hashmapBlog.get(key)});
         }
     }
 }
