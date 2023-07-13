@@ -2,13 +2,11 @@
 package test.com.controllers;
 
 import test.com.daos.DAOPost;
-import test.com.entities.AccountMarketer;
 import test.com.entities.Post;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -44,7 +42,7 @@ public class PostListController extends HttpServlet {
 
             //pagination current
             int index;
-            if (currentPage == "0" || currentPage == null) {
+            if (currentPage.equals("0") || currentPage == null) {
                 index = 1;
             } else {
                 index = Integer.parseInt(currentPage);
@@ -62,11 +60,5 @@ public class PostListController extends HttpServlet {
         }
         request.getRequestDispatcher("view/marketer/dashboard-postlist.jsp").forward(request, response);
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
     }
 }

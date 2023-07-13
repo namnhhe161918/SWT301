@@ -11,12 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-<<<<<<< HEAD:src/java/test/com/daos/DAOBlog.java
 import test.com.modules.DBConnect;
-=======
 import java.util.logging.Level;
-import module.DBConnect;
->>>>>>> a38b9f17aac98069345a877a4251cf448d5975aa:src/java/DAO/DAOBlog.java
 import java.util.logging.Logger;
 
 
