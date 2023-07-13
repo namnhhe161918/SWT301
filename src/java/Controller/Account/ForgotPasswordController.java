@@ -58,8 +58,7 @@ public class ForgotPasswordController extends HttpServlet {
                     session.setAttribute("attribute", attribute);
                     request.getRequestDispatcher("view/forgotpsw/resetpsw.jsp").forward(request, response);
                 } else {
-                    request.getRequestDispatcher("view/Error/404.jsp").forward(request, response);
-//                    response.sendRedirect("jspClient/404.html");
+                request.getRequestDispatcher("view/Error/404.jsp").forward(request, response);
                 }
             } else {
                 //tra ve cai gi khi khong co action 
