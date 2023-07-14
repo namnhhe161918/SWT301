@@ -170,11 +170,10 @@ public class DAOUser extends DBConnect {
             st.setInt(9, gender);
             st.setInt(10, id);
             st.executeUpdate();
+                    st.close();
         } catch (SQLException e) {
             System.out.println(e);
-        } finally {
-            System.out.println("Success");
-        }
+        } 
     }
     
     public Vector<AccountUser> getAll(String sql) {
