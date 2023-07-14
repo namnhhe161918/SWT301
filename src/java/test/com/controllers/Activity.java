@@ -4,9 +4,7 @@
  */
 package test.com.controllers;
 
-import test.com.daos.DAOResultTest;
 import test.com.entities.AccountUser;
-import test.com.entities.ResultTest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.ResultSet;
-import java.util.Vector;
+import test.com.daos.DAOResultTest;
 
 /**
  *

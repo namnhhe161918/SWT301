@@ -55,7 +55,6 @@ public class DAOResultTest extends DBConnect{
         return vector;
     }
     
-<<<<<<< HEAD:src/java/DAO/DAOResultTest.java
     public int removeResultTest(int user_id, int course_id) {
     int n = 0;
     String sql = "DELETE FROM Result_test WHERE user_id = ? AND course_id = ?";
@@ -73,18 +72,6 @@ public class DAOResultTest extends DBConnect{
                 e.printStackTrace();
             }
         }
-=======
-    public int removeResultTest (int user_id, int course_id) {
-        int n = 0;
-        String sql = "delete from Result_test where user_id = " + user_id + " and course_id = " + course_id;
-        try {
-            Statement statement = conn.createStatement();
-            n = statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-        return n;
->>>>>>> 86c9a644515b9b1e98256081fbc1f511b8adff4f:src/java/test/com/daos/DAOResultTest.java
     }
     return n;
 }
