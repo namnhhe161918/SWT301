@@ -25,7 +25,7 @@ public class DBConnect {
             //goi driver
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //conect
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QUIZ_PRACTICE", "sa", "123456");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QUIZ_PRACTICE", "sa", "123asd@#$VCVC");
             System.out.println("Connected");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
