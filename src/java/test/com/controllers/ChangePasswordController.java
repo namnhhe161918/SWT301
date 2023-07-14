@@ -18,13 +18,16 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name="ChangePasswordController", urlPatterns={"/ChangePassword"})
 public class ChangePasswordController extends HttpServlet {
+
+   private final static String url = "/view/login/sign_in.jsp";
+   private final static String urlsucess = "jspClient/changePassword.jsp";
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("jspClient/changePassword.jsp").forward(request, response);
+        request.getRequestDispatcher(urlsucess).forward(request, response);
     }
 
     @Override
@@ -49,28 +52,28 @@ public class ChangePasswordController extends HttpServlet {
         DAOAdmin adminDao = new DAOAdmin();
         
         if (aa != null) {
-            request.getRequestDispatcher("jspClient/changePassword.jsp").forward(request, response);
+            request.getRequestDispatcher(urlsucess).forward(request, response);
         } else if (am != null) {
             am.setPassword(CPass);          
             marketerDao.updatePasswordByName(CPass, am.getEmail());
             request.setAttribute("message", "Update successful!");
             session.setAttribute("accountMarketer", am);
-            request.getRequestDispatcher("/view/login/sign_in.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         } else if (ame != null) {
             ame.setPassword(CPass);         
             mentorDao.updatePasswordByName(CPass, ame.getEmail());
             request.setAttribute("message", "Update successful!");
             session.setAttribute("accountMentor", ame);
-            request.getRequestDispatcher("/view/login/sign_in.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         } else if (au != null) {
             au.setPassword(CPass);
             userDao.updatePasswordByName(CPass, au.getEmail());
             request.setAttribute("message", "Update successful!");
             session.setAttribute("accountUser", au);
-            request.getRequestDispatcher("/view/login/sign_in.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         } else {
             request.setAttribute("error", "Update failed");
-            request.getRequestDispatcher("jspClient/changePassword.jsp").forward(request, response);
+            request.getRequestDispatcher(urlsucess).forward(request, response);
         }
     }
 
