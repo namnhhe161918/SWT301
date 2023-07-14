@@ -188,9 +188,9 @@ public class QuestionAdmin extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public boolean checkFormatFileExcel(String fileName) throws IOException {
-        boolean check = true;
-        InputStream inp = new FileInputStream(fileName);
+   public boolean checkFormatFileExcel(String fileName) throws IOException {
+    boolean check = true;
+    try (InputStream inp = new FileInputStream(fileName)) {
         HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(inp));
         Sheet sheet = wb.getSheetAt(0);
         int index[] = {1, 2, 3, 4, 5};
@@ -215,8 +215,10 @@ public class QuestionAdmin extends HttpServlet {
                 check = false;
             }
         }
-        return check;
-    }
+    } // The InputStream will be automatically closed here
+    return check;
+}
+
 
     public void importDataFromExcel(String fileName, DAOQuestion daoQues, DAOAnswer daoAns, int course_id) throws IOException {
         InputStream inp = new FileInputStream(fileName);
