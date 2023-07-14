@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 public class AddSliderController extends HttpServlet {
     private static final com.sun.org.slf4j.internal.Logger logger = LoggerFactory.getLogger(AddSliderController.class);
 
-    public final String FAILURE = "addslider";
+    public static final String FAILURE = "addslider";
     public final String SUCCESS = "listslider";
 
     @Override
