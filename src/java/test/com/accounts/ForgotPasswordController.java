@@ -108,8 +108,7 @@ public class ForgotPasswordController extends HttpServlet {
                     //send page login
                     break;
                 default: 
-                   request.setAttribute("msg", "Update password falied");
-                   return;
+                   break;
             }
             request.getRequestDispatcher("view/login/sign_in.jsp").forward(request, response);
         }
