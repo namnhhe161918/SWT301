@@ -68,7 +68,7 @@ public class AddSliderController extends HttpServlet {
             } else {
                 url = SUCCESS;
                 //execute insert
-                sdb.insertSilder(Integer.parseInt(subject), fileName, content, note, status.equals("1") ? true : false);
+                sdb.insertSilder(Integer.parseInt(subject), fileName, content, note, status.equals("1"));
                 response.sendRedirect(url);
 
             }
