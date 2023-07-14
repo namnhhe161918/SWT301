@@ -31,7 +31,23 @@ public class DAORole extends DBConnect {
             }
         } catch (SQLException e) {
             System.out.println(e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+        
         return list;
     }
     
