@@ -21,8 +21,8 @@ import java.nio.file.Paths;
 public class AddSliderController extends HttpServlet {
     private static final com.sun.org.slf4j.internal.Logger logger = LoggerFactory.getLogger(AddSliderController.class);
 
-    public static final String FAILURE = "addslider";
-    public final String SUCCESS = "listslider";
+    public static final String failure = "addslider";
+    public static final String success = "listslider";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,11 +62,11 @@ public class AddSliderController extends HttpServlet {
 
             //check subject not -1
             if ("-1".equals(subject)) {
-                url = FAILURE;
+                url = failure;
                 request.getSession().setAttribute("message", "error");
                 response.sendRedirect(url);
             } else {
-                url = SUCCESS;
+                url = success;
                 //execute insert
                 sdb.insertSilder(Integer.parseInt(subject), fileName, content, note, status.equals("1"));
                 response.sendRedirect(url);
