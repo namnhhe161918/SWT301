@@ -58,7 +58,6 @@ public class ForgotPasswordController extends HttpServlet {
                     session.setAttribute("attribute", attribute);
                     request.getRequestDispatcher("view/forgotpsw/resetpsw.jsp").forward(request, response);
                 } else {
-//                request.getRequestDispatcher("view/Error/404.jsp").forward(request, response);
                     response.sendRedirect("jspClient/404.html");
                 }
             } else {
@@ -108,7 +107,7 @@ public class ForgotPasswordController extends HttpServlet {
                     //send page login
                     break;
                 default: 
-                   break;
+                    request.setAttribute("msg", "Update Falied");
             }
             request.getRequestDispatcher("view/login/sign_in.jsp").forward(request, response);
         }
