@@ -2,51 +2,51 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>ProfileController</servlet-name>
-        <servlet-class>Controller.ProfileController</servlet-class>
+        <servlet-class>test.com.controllers.ProfileController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.LoginController</servlet-class>
+        <servlet-class>test.com.controllers.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SignUpController</servlet-name>
-        <servlet-class>Controller.SignUpController</servlet-class>
+        <servlet-class>test.com.controllers.SignUpController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ForgotPasswordController</servlet-name>
-        <servlet-class>Controller.Account.ForgotPasswordController</servlet-class>
+        <servlet-class>con.Controller.Account.ForgotPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RestPasswordController</servlet-name>
-        <servlet-class>Controller.Account.RestPasswordController</servlet-class>
+        <servlet-class>con.Controller.Account.RestPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SliderListController</servlet-name>
-        <servlet-class>Controller.SliderCRUD.SliderListController</servlet-class>
+        <servlet-class>test.com.controllers.SliderListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DashboardMarketerController</servlet-name>
-        <servlet-class>DashboardMarketerController</servlet-class>
+        <servlet-class>test.com.controllers.DashboardMarketerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddSliderController</servlet-name>
-        <servlet-class>Controller.SliderCRUD.AddSliderController</servlet-class>
+        <servlet-class>test.com.controllers.AddSliderController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PostListController</servlet-name>
-        <servlet-class>Controller.PostCRUD.PostListController</servlet-class>
+        <servlet-class>test.com.controllers.PostListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BlogListController</servlet-name>
-        <servlet-class>Controller.BlogListController</servlet-class>
+        <servlet-class>test.com.controllers.BlogListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BlogDetailController</servlet-name>
-        <servlet-class>Controller.BlogDetailController</servlet-class>
+        <servlet-class>test.com.controllers.BlogDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LicensingPostController</servlet-name>
-        <servlet-class>Controller.LicensingPostController</servlet-class>
+        <servlet-class>test.com.controllers.LicensingPostController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProfileController</servlet-name>
