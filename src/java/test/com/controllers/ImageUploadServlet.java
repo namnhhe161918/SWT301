@@ -4,6 +4,7 @@ package test.com.controllers;
 
 
 
+import com.sun.org.slf4j.internal.LoggerFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -25,9 +26,12 @@ import jakarta.servlet.http.Part;
 )
 public class ImageUploadServlet extends HttpServlet {
 
+    private static final com.sun.org.slf4j.internal.Logger logger = LoggerFactory.getLogger(ImageUploadServlet.class);
+
     private static final long serialVersionUID = 1L;
     private static final String UPLOAD_DIRECTORY = "upload"; // Thư mục lưu trữ ảnh tải lên
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fileName = "";
         String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
@@ -62,7 +66,7 @@ public class ImageUploadServlet extends HttpServlet {
 
     public String getFileName(Part part) {
         final String partHeader = part.getHeader("content-disposition");
-        System.out.println("*****partHeader :" + partHeader);
+        logger.debug("*****partHeader: {}", partHeader);
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {
                 return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
