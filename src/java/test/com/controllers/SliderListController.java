@@ -27,7 +27,7 @@ public class SliderListController extends HttpServlet {
             throws ServletException, IOException, IllegalStateException {
         //pagination
         String search = request.getParameter("search") == null ? "" : request.getParameter("search");
-        String entry = request.getParameter("entry") == null || request.getParameter("entry") == "" ? "10" : request.getParameter("entry");
+        String entry = request.getParameter("entry") == null || request.getParameter("entry").equals("") ? "10" : request.getParameter("entry");
         String currentPage = request.getParameter("index");
 
         //check user thuoc role marketer xem la ai
