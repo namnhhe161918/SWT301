@@ -27,7 +27,7 @@ public class AddSliderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("pageslider", "addslider");
+        request.setAttribute("pageslider", FAILURE);
         request.getRequestDispatcher("view/marketer/dashboard-addslider.jsp").forward(request, response);
     }
 
