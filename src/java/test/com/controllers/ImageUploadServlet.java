@@ -32,37 +32,37 @@ public class ImageUploadServlet extends HttpServlet {
     private static final String UPLOAD_DIRECTORY = "upload"; // Thư mục lưu trữ ảnh tải lên
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String fileName = "";
-        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String fileName = "";
+    String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdir(); // Tạo thư mục lưu trữ ảnh nếu chưa tồn tại
-        }
-
-        try {
-            Part filePart = request.getPart("file");
-            fileName = (String) getFileName(filePart);
-
-            // Ghi tệp tin vào thư mục lưu trữ
-            OutputStream out = new FileOutputStream(new File(uploadPath + File.separator + fileName));
-            InputStream fileContent = filePart.getInputStream();
-
-            int read;
-            final byte[] buffer = new byte[1024];
-            while ((read = fileContent.read(buffer)) != -1) {
-                out.write(buffer, 0, read);
-            }
-
-            out.close();
-            fileContent.close();
-        } catch (Exception e) {
-            response.getWriter().println(e.getMessage());
-        }
-
-        response.getWriter().println(fileName);
+    File uploadDir = new File(uploadPath);
+    if (!uploadDir.exists()) {
+        uploadDir.mkdir(); // Tạo thư mục lưu trữ ảnh nếu chưa tồn tại
     }
+
+    try {
+        Part filePart = request.getPart("file");
+        fileName = getFileName(filePart); // Remove unnecessary cast
+
+        // Ghi tệp tin vào thư mục lưu trữ
+        OutputStream out = new FileOutputStream(new File(uploadPath + File.separator + fileName));
+        InputStream fileContent = filePart.getInputStream();
+
+        int read;
+        final byte[] buffer = new byte[1024];
+        while ((read = fileContent.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
+
+        out.close();
+        fileContent.close();
+    } catch (Exception e) {
+        response.getWriter().println(e.getMessage());
+    }
+
+    response.getWriter().println(fileName);
+}
 
     public String getFileName(Part part) {
         final String partHeader = part.getHeader("content-disposition");
