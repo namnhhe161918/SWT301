@@ -172,6 +172,8 @@ public class DAOUser extends DBConnect {
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
+        } finally {
+            System.out.println("Success");
         }
     }
     
