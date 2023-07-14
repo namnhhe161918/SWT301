@@ -54,7 +54,7 @@ public class CourseAdmin extends HttpServlet {
             }
 
             if (service.equals("show")) {
-                ResultSet rsCourse = dao.getData("select c.course_id, s.subject_name, c.course_name, c.[image], Count(q.question_name) as number_of_questions from [Course] c join [Subject] s on c.subject_id = s.subject_id left join Question q on q.course_id = c.course_id group by c.course_id, s.subject_name, c.course_name, c.[image]");
+                ResultSet rsCourse = dao.getData("select c.course_id, s.subject_name, c.course_name, c.[image], Count(q.question_name) as number_of_questions from [Course] c join [Subject] s on c.subject_id = s.subject_id left join Question q on q.course_id = c.course_id group by c.course_id, s.subject_name, c.courseName, c.[image]");
                 ResultSet subjectName = dao.getData("select subject_id, subject_name from Subject");
                 request.setAttribute("subjectName", subjectName);
                 request.setAttribute("rsCourse", rsCourse);
@@ -62,7 +62,7 @@ public class CourseAdmin extends HttpServlet {
             }
 
             if (service.equals("add")) {
-                String course_name = request.getParameter("name");
+                String courseName = request.getParameter("name");
                 String description = request.getParameter("description");
                 Part imagePath = request.getPart("file");
                 String fileName = imagePath.getSubmittedFileName();
@@ -70,8 +70,8 @@ public class CourseAdmin extends HttpServlet {
                 String absolutePath = getServletContext().getRealPath(relativePath);
                 imagePath.write(absolutePath);
                 int publish = Integer.parseInt(request.getParameter("publish"));
-                int subject_id = Integer.parseInt(request.getParameter("subject_id"));
-                Course course = new Course(course_name, description, relativePath, publish);
+                int subjectId = Integer.parseInt(request.getParameter("subject_id"));
+                Course course = new Course(courseName, description, relativePath, publish);
                 int n = dao.addCourse(subject_id, course);
                 if (n > 0) {
                     response.sendRedirect("Course");
@@ -79,7 +79,7 @@ public class CourseAdmin extends HttpServlet {
             }
 
             if (service.equals("delete")) {
-                int course_id = Integer.parseInt(request.getParameter("course_id"));
+                int courseId = Integer.parseInt(request.getParameter("course_id"));
                 int n = dao.deleteCourseByCourseID(course_id);
                 if (n > 0) {
                     response.sendRedirect("Course");
@@ -87,7 +87,7 @@ public class CourseAdmin extends HttpServlet {
             }
 
             if (service.equals("edit")) {
-                int course_id = Integer.parseInt(request.getParameter("course_id"));
+                int courseId = Integer.parseInt(request.getParameter("course_id"));
                 String submit = request.getParameter("submit");
                 if (submit == null) {
                     ResultSet rsCourse = dao.getData("select * from Course where course_id = " + course_id);
@@ -97,17 +97,17 @@ public class CourseAdmin extends HttpServlet {
                     String notifi = "";
                     String name = request.getParameter("name");
                     String description = request.getParameter("description");
-                    int subject_id = Integer.parseInt(request.getParameter("subject_id"));
-                    int mentor_id = Integer.parseInt(request.getParameter("mentor_id"));
-                    int is_publish = Integer.parseInt(request.getParameter("is_publish"));
+                    int subjectId = Integer.parseInt(request.getParameter("subject_id"));
+                    int mentorId = Integer.parseInt(request.getParameter("mentor_id"));
+                    int isPublish = Integer.parseInt(request.getParameter("is_publish"));
                     int quantity = Integer.parseInt(request.getParameter("quantity"));
                     Part imagePath = request.getPart("file");
                     String fileName = imagePath.getSubmittedFileName();
                     String relativePath = "./assets/images/categories/" + fileName;
                     String absolutePath = getServletContext().getRealPath(relativePath);
                     imagePath.write(absolutePath);
-                    String created_date = request.getParameter("created_date");
-                    String updated_date = request.getParameter("updated_date");
+                    String createdDate = request.getParameter("created_date");
+                    String updatedDate = request.getParameter("updated_date");
                     Course course = new Course(course_id, subject_id, mentor_id, name, description, relativePath, is_publish, quantity, created_date, updated_date);
                     int n = dao.updateCourse(course);
                     if (n > 0) {
