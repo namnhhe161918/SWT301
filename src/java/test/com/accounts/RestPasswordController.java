@@ -40,32 +40,36 @@ public class RestPasswordController extends HttpServlet {
         request.getRequestDispatcher("view/forgotpsw/forgotpassword.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String email = request.getParameter("email");
+   private static final String EMAIL_VERIFICATION_MESSAGE = "Check your email and verify!";
 
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    String email = request.getParameter("email");
 
-        if (new DAOAdmin().checkExist(email) != null) {
-            sendDocumentHTML(email, 1);
-            request.setAttribute("msg", "Check your email and verify!");
-        } else if (new DAOMarketer().checkExist(email) != null) {
-            sendDocumentHTML(email, 3);
-            request.setAttribute("msg", "Check your email and verify!");
-        } else if (new DAOMentor().checkExist(email) != null) {
-            sendDocumentHTML(email, 2);
-            request.setAttribute("msg", "Check your email and verify!");
-        } else if (new DAOUser().checkExist(email) != null) {
-            sendDocumentHTML(email, 4);
-            request.setAttribute("msg", "Check your email and verify!");
-        } else {
-            request.setAttribute("msgerror", "Invalid email!");
-            request.getRequestDispatcher("view/forgotpsw/forgotpassword.jsp").forward(request, response);
-        }
-        request.setAttribute("changepass", email);
-        request.getRequestDispatcher("view/forgotpsw/sentlink.jsp").forward(request, response);
-
+    String msg;
+    if (new DAOAdmin().checkExist(email) != null) {
+        sendDocumentHTML(email, 1);
+        msg = EMAIL_VERIFICATION_MESSAGE;
+    } else if (new DAOMarketer().checkExist(email) != null) {
+        sendDocumentHTML(email, 3);
+        msg = EMAIL_VERIFICATION_MESSAGE;
+    } else if (new DAOMentor().checkExist(email) != null) {
+        sendDocumentHTML(email, 2);
+        msg = EMAIL_VERIFICATION_MESSAGE;
+    } else if (new DAOUser().checkExist(email) != null) {
+        sendDocumentHTML(email, 4);
+        msg = EMAIL_VERIFICATION_MESSAGE;
+    } else {
+        request.setAttribute("msgerror", "Invalid email!");
+        request.getRequestDispatcher("view/forgotpsw/forgotpassword.jsp").forward(request, response);
+        return;
     }
+
+    request.setAttribute("msg", msg);
+    request.setAttribute("changepass", email);
+    request.getRequestDispatcher("view/forgotpsw/sentlink.jsp").forward(request, response);
+}
 
     public void sendDocumentHTML(String email, int role) throws UnsupportedEncodingException {
         String linksend = Mailer.generateLink("http://localhost:8080/Project_SWP391/forgotten?action=reset&email=" + email + "&role=" + role);
