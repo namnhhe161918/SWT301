@@ -266,21 +266,6 @@ public class DAOPost extends DBConnect {
     }
 
     //get number of post
-//    public int getNumberPost(String search) {
-//        String sql = "SELECT COUNT(*) FROM Post p INNER JOIN Marketer_type ma ON p.marketer_id = ma.marketer_id\n"
-//                + "INNER JOIN Blog b ON p.blog_id = b.blog_id\n"
-//                + "WHERE b.blog_name LIKE ?";
-//        try {
-//            PreparedStatement st = conn.prepareStatement(sql);
-//            st.setString(1, "%" + search + "%");
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                return rs.getInt(1);
-//            }
-//        } catch (Exception e) {
-//        }
-//        return 0;
-//    }
         public int getNumberPost(String search) {
     String sql = "SELECT COUNT(*) FROM Post p INNER JOIN Marketer_type ma ON p.marketer_id = ma.marketer_id\n"
             + "INNER JOIN Blog b ON p.blog_id = b.blog_id\n"
