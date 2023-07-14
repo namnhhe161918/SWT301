@@ -107,6 +107,9 @@ public class ForgotPasswordController extends HttpServlet {
                     new DAOUser().updatePasswordByName(npass, au.getEmail());
                     //send page login
                     break;
+                default: 
+                   request.setAttribute("msg", "Update password falied");
+                   return;
             }
             request.getRequestDispatcher("view/login/sign_in.jsp").forward(request, response);
         }
