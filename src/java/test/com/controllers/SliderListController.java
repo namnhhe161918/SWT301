@@ -52,7 +52,7 @@ public class SliderListController extends HttpServlet {
 
             //pagination current
             int index;
-            if (currentPage == "0" || currentPage == null) {
+            if (currentPage.equals("0") || currentPage.isEmpty()) {
                 index = 1;
             } else {
                 index = Integer.parseInt(currentPage);
