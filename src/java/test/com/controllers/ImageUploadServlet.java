@@ -59,7 +59,24 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         fileContent.close();
     } catch (Exception e) {
         response.getWriter().println(e.getMessage());
-    }
+    } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fileContent != null) {
+                try {
+                    fileContent.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+            
+
 
     response.getWriter().println(fileName);
 }
