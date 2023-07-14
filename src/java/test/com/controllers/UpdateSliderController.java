@@ -101,7 +101,7 @@ public class UpdateSliderController extends HttpServlet {
             } else {
                 url = KNOW;
                 //execute insert
-                sdb.updateSlider(Integer.parseInt(slider_id), Integer.parseInt(subject), fileName, content, note, status == "1" ? true : false);
+                sdb.updateSlider(Integer.parseInt(slider_id), Integer.parseInt(subject), fileName, content, note, status.equals("1") ? true : false);
 
                 //session temporary
                 Slider s = sdb.getById(Integer.parseInt(slider_id));
